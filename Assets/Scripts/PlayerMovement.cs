@@ -34,10 +34,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject haloAngel;
 
+    AudioSource audioSource;
+  
     // Start is called before the first frame update
     void Start()
     {
         haloAngel.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -56,7 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isWin && isDead)
         {
+     
+           
             SceneManager.LoadScene("GameOverScene");
+         
+
             return ;
         }
 
@@ -116,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isDead = true;
+             
             }
 
         }
@@ -180,5 +188,10 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
