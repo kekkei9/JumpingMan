@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public static readonly Dictionary<int, string> levelList = new Dictionary<int, string>() {
         {1, "GameScene"},
         {2, "GameScene2"},
+        {3, "GameScene3"},
     };
 
     #region Properties
